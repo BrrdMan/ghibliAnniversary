@@ -19,166 +19,166 @@ const Gallery = () => {
     const sampleImages = [
       {
         id: 1,
-        src: '/src/assets/gallery/image1.jpg'        
+        src: '/images/assets/gallery/image1.jpg'        
       },
       {
         id: 2,
-        src: '/src/assets/gallery/image2.jpg'
+        src: '/images/assets/gallery/image2.jpg'
       },
       {
         id: 3,
-        src: '/src/assets/gallery/image3.jpg'
+        src: '/images/assets/gallery/image3.jpg'
       },
       {
         id: 4,
-        src: '/src/assets/gallery/image4.jpg'
+        src: '/images/assets/gallery/image4.jpg'
       },
       {
         id: 5,
-        src: '/src/assets/gallery/image5.jpg'
+        src: '/images/assets/gallery/image5.jpg'
       },
       {
         id: 6,
-        src: '/src/assets/gallery/image6.jpg'
+        src: '/images/assets/gallery/image6.jpg'
       },
       {
         id: 7,
-        src: '/src/assets/gallery/image7.jpg'
+        src: '/images/assets/gallery/image7.jpg'
       },
       {
         id: 8,
-        src: '/src/assets/gallery/image8.jpg'
+        src: '/images/assets/gallery/image8.jpg'
       },
       {
         id: 9,
-        src: '/src/assets/gallery/image9.jpg'
+        src: '/images/assets/gallery/image9.jpg'
       },
       // Add more images to fill the grid
       {
         id: 10,
-        src: '/src/assets/gallery/image10.jpg'
+        src: '/images/assets/gallery/image10.jpg'
       },
       {
         id: 11,
-        src: '/src/assets/gallery/image11.jpg'
+        src: '/images/assets/gallery/image11.jpg'
       },
       {
         id: 12,
-        src: '/src/assets/gallery/image12.jpg'
+        src: '/images/assets/gallery/image12.jpg'
       },
       {
         id: 13,
-        src: '/src/assets/gallery/image13.jpg'
+        src: '/images/assets/gallery/image13.jpg'
       },
       {
         id: 14,
-        src: '/src/assets/gallery/image14.jpg'
+        src: '/images/assets/gallery/image14.jpg'
       },
       {
         id: 15,
-        src: '/src/assets/gallery/image15.jpg'
+        src: '/images/assets/gallery/image15.jpg'
       },
       {
         id: 16,
-        src: '/src/assets/gallery/image16.jpg'
+        src: '/images/assets/gallery/image16.jpg'
       },
       {
         id: 17,
-        src: '/src/assets/gallery/image17.jpg'
+        src: '/images/assets/gallery/image17.jpg'
       },
       {
         id: 18,
-        src: '/src/assets/gallery/image18.jpg'
+        src: '/images/assets/gallery/image18.jpg'
       },
       {
         id: 19,
-        src: '/src/assets/gallery/image19.jpg'
+        src: '/images/assets/gallery/image19.jpg'
       },
       {
         id: 20,
-        src: '/src/assets/gallery/image20.jpg'
+        src: '/images/assets/gallery/image20.jpg'
       },
       {
         id: 21,
-        src: '/src/assets/gallery/image21.jpg'
+        src: '/images/assets/gallery/image21.jpg'
       },
       {
         id: 22,
-        src: '/src/assets/gallery/image22.jpg'
+        src: '/images/assets/gallery/image22.jpg'
       },
       {
         id: 23,
-        src: '/src/assets/gallery/image23.jpg'
+        src: '/images/assets/gallery/image23.jpg'
       },
       {
         id: 24,
-        src: '/src/assets/gallery/image24.jpg'
+        src: '/images/assets/gallery/image24.jpg'
       },
       // Add more images to fill the grid
       {
         id: 25,
-        src: '/src/assets/gallery/image25.jpg'
+        src: '/images/assets/gallery/image25.jpg'
       },
       {
         id: 26,
-        src: '/src/assets/gallery/image26.jpg'
+        src: '/images/assets/gallery/image26.jpg'
       },
       {
         id: 27,
-        src: '/src/assets/gallery/image27.jpg'
+        src: '/images/assets/gallery/image27.jpg'
       },
       {
         id: 28,
-        src: '/src/assets/gallery/image28.jpg'
+        src: '/images/assets/gallery/image28.jpg'
       },
       {
         id: 29,
-        src: '/src/assets/gallery/image29.jpg'
+        src: '/images/assets/gallery/image29.jpg'
       },
       {
         id: 30,
-        src: '/src/assets/gallery/image30.jpg'
+        src: '/images/assets/gallery/image30.jpg'
       },
       {
         id: 31,
-        src: '/src/assets/gallery/image31.jpg'
+        src: '/images/assets/gallery/image31.jpg'
       },
       {
         id: 32,
-        src: '/src/assets/gallery/image32.jpg'
+        src: '/images/assets/gallery/image32.jpg'
       },
       {
         id: 33,
-        src: '/src/assets/gallery/image33.jpg'
+        src: '/images/assets/gallery/image33.jpg'
       },
       {
         id: 34,
-        src: '/src/assets/gallery/image34.jpg'
+        src: '/images/assets/gallery/image34.jpg'
       },
       {
         id: 35,
-        src: '/src/assets/gallery/image35.jpg'
+        src: '/images/assets/gallery/image35.jpg'
       },
       {
         id: 36,
-        src: '/src/assets/gallery/image36.jpg'
+        src: '/images/assets/gallery/image36.jpg'
       },
       {
         id: 37,
-        src: '/src/assets/gallery/image37.jpg'
+        src: '/images/assets/gallery/image37.jpg'
       },
       {
         id: 38,
-        src: '/src/assets/gallery/image38.jpg'
+        src: '/images/assets/gallery/image38.jpg'
       },
       {
         id: 39,
-        src: '/src/assets/gallery/image39.jpg'
+        src: '/images/assets/gallery/image39.jpg'
       },
       // Add more images to fill the grid
       {
         id: 40,
-        src: '/src/assets/gallery/image40.jpg'
+        src: '/images/assets/gallery/image40.jpg'
       }
     ];
     

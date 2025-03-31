@@ -21,7 +21,7 @@ const Timeline = () => {
       date: "October 12, 2024",
       title: "First Pujo",
       description: "I kinda want to forget that day :3. Koto gulo missed oppurtunities. Gorom er moddhye tang tang kre hata. Tr palazzo ta k ami dekhioni jotokkhn na tui blli. Then ei godforsaken pic ta XXDDD. Basic byapar ta holo akhono ami unsure, uncomfortable chilam. Line ta dkhte petam na. Tai aro kichu krtam na. Jdi offend hye jas. Er jnne ei chobi ta :(. Atleast Ghibli kre improve hyeche. Anyway, we came a long way since then.",
-      image: "/src/assets/timeline/first-meeting.jpg",
+      image: "/images/assets/timeline/first-meeting.jpg",
       icon: "🌱",
       color: "#81b29a"
     },
@@ -30,7 +30,7 @@ const Timeline = () => {
       date: "November 5, 2024",
       title: "First Date",
       description: "Our first official date. 5th Novemeber. Tr interview er porer din. Aladai lgchilo toke. Calcutta 64. Affogato :). Kbe abr khabo k jane.",
-      image: "/src/assets/timeline/first-date.jpg",
+      image: "/public/images/assets/timeline/first-date.jpg",
       icon: "🍵",
       color: "#f2cc8f"
     },
@@ -39,7 +39,7 @@ const Timeline = () => {
       date: "November 30, 2024",
       title: "Became Official",
       description: "The day we decided to make it official. Bittersweet din. Na.  Actually khub khub koster din. Actually khub koster week. Office without you is nothing. Dankuni Kamalgazi/201/Metro without you is nothing. I wish things were different. But amader life completely change holo sedin. Sbai k kosto die beriecho.",
-      image: "/src/assets/timeline/official.jpg",
+      image: "/public/images/assets/timeline/official.jpg",
       icon: "❤️",
       color: "#e07a5f"
     },
@@ -48,7 +48,7 @@ const Timeline = () => {
       date: "February 14, 2025",
       title: "First Valentine's Day",
       description: "Is this the day you looked the best. Amar choice e top ta kinechilis. And the top paired with the pant. Simply ethereal. Amader first valentine's day. Chilli cheese fries with chicken popcorn khawa hyechilo XD",
-      image: "/src/assets/timeline/valentines.jpg",
+      image: "/public/images/assets/timeline/valentines.jpg",
       icon: "💝",
       color: "#e07a5f"
     },
@@ -57,7 +57,7 @@ const Timeline = () => {
       date: "March 9, 2025",
       title: "Sunday Getaway",
       description: "Cubbon Park, Museum, UB City. Ami bhaloi jayga bar kri. Day well spent. Aro dure ebar jete hbe. Nandi Hills?",
-      image: "/src/assets/timeline/trip.jpg",
+      image: "/public/images/assets/timeline/trip.jpg",
       icon: "🌲",
       color: "#3d405b"
     },
@@ -66,7 +66,7 @@ const Timeline = () => {
       date: "February 9, 2025",
       title: "Shopping Date",
       description: "Another favorite outfit amr. Denim with check pant. Sedin tr to nicher part er e video kre jchhilam XXDD.",
-      image: "/src/assets/timeline/shopping.jpg",
+      image: "/public/images/assets/timeline/shopping.jpg",
       icon: "🛍️",
       color: "#81b29a"
     },
@@ -75,7 +75,7 @@ const Timeline = () => {
       date: "April 1, 2025",
       title: "Six Month Anniversary",
       description: "Half a year of loving you, and I fall more in love with you every day. Tuio amae jalas; amio toke jalai. But that's normal na? 6 months done. And ebar officialy blbo j YOU ARE THE ONE; YOU ARE THE ONLY!! Here's to many more months and years together and many more adventures together.",
-      image: "/src/assets/timeline/anniversary.jpg",
+      image: "/public/images/assets/timeline/anniversary.jpg",
       icon: "🎉",
       color: "#f2cc8f"
     }
@@ -87,7 +87,7 @@ const Timeline = () => {
       <div 
         className="fixed inset-0 bg-cover bg-center opacity-20 z-0"
         style={{ 
-          backgroundImage: "url('/src/assets/ghibli-field-bg.jpg')"
+          backgroundImage: "url('/public/images/assets/ghibli-field-bg.jpg')"
         }}
       />
       
@@ -95,7 +95,7 @@ const Timeline = () => {
       <motion.div 
         className="fixed z-1 w-24 h-24 opacity-60"
         style={{ 
-          backgroundImage: "url('/src/assets/flying-bird.png')", 
+          backgroundImage: "url('/public/images/assets/flying-bird.png')", 
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
           top: '15%',
@@ -115,7 +115,7 @@ const Timeline = () => {
       <motion.div 
         className="fixed z-1 w-16 h-16 opacity-60"
         style={{ 
-          backgroundImage: "url('/src/assets/small-cloud.png')", 
+          backgroundImage: "url('/public/images/assets/small-cloud.png')", 
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
           top: '40%',

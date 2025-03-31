@@ -100,14 +100,14 @@ const Home = () => {
     >
       {/* Main background image */}
       <div className="fixed inset-0 bg-cover bg-center z-0"
-           style={{ backgroundImage: "url('/src/assets/ghibli-field-bg.jpg')" }}>
+           style={{ backgroundImage: "url('/images/assets/ghibli-field-bg.jpg')" }}>
       </div>
       
       {/* Floating elements - Ghibli-inspired */}
       <motion.div 
         className="fixed z-5 w-16 h-16 opacity-70"
         style={{ 
-          backgroundImage: "url('/src/assets/totoro-small.png')", 
+          backgroundImage: "url('/public/images/assets/totoro-small.png')", 
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat'
         }}
@@ -127,7 +127,7 @@ const Home = () => {
       <motion.div 
         className="fixed z-5 w-20 h-20 opacity-70"
         style={{ 
-          backgroundImage: "url('/src/assets/leaf-spirit.png')", 
+          backgroundImage: "url('/public/images/assets/leaf-spirit.png')", 
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat'
         }}

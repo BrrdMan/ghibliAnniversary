@@ -28,7 +28,7 @@ const Footer = () => {
         <motion.div 
           className="absolute w-40 h-40 opacity-10"
           style={{ 
-            backgroundImage: "url('/src/assets/cat-bus.png')", 
+            backgroundImage: "url('/public/images/assets/cat-bus.png')", 
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -48,7 +48,7 @@ const Footer = () => {
         <motion.div 
           className="absolute w-32 h-32 opacity-10"
           style={{ 
-            backgroundImage: "url('/src/assets/kodama.png')", 
+            backgroundImage: "url('/public/images/assets/kodama.png')", 
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -78,7 +78,7 @@ const Footer = () => {
               transition={{ duration: 0.5 }}
             >
               <img 
-                src="/src/assets/totoro-logo.png" 
+                src="/public/images/assets/totoro-logo.png" 
                 alt="Logo" 
                 className="h-10 w-10 mr-3"
                 onError={(e) => {
