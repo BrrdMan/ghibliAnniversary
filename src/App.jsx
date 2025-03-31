@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 // Remove the Howl import since we're using YouTube now
 // import { Howl } from 'howler';
@@ -13,6 +13,7 @@ import BackgroundMusic from './components/BackgroundMusic'; // Import the new co
 // Component to conditionally render navbar and footer
 const Layout = ({ children }) => {
   const location = useLocation();
+  console.log("Current location:", location);
   const isHomePage = location.pathname === '/';
 
   return (
@@ -36,22 +37,21 @@ function App() {
         <div className="min-h-screen flex flex-col">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/timeline" element={
+            <Route path="timeline" element={
               <Layout>
                 <Timeline />
               </Layout>
             } />
-            <Route path="/gallery" element={
+            <Route path="gallery" element={
               <Layout>
                 <Gallery />
               </Layout>
             } />
-            <Route path="/future" element={
+            <Route path="future" element={
               <Layout>
                 <Future />
               </Layout>
             } />
-            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </Router>

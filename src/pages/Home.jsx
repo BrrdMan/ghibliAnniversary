@@ -11,7 +11,9 @@ const Home = () => {
   
   // Direct navigation function using window.location
   const navigateTo = (path) => {
-    window.location.href = path;
+    // Remove the leading slash for HashRouter
+    const hashPath = path.startsWith('/') ? path.substring(1) : path;
+    window.location.hash = `#/${hashPath}`;
   };
   
   // Controlled section change with bounds checking
@@ -220,9 +222,9 @@ const Home = () => {
         >
           <div className="grid grid-cols-3 gap-12 max-w-4xl mx-auto">
             {[
-              { title: "Our Timeline", icon: "📜", path: "/timeline", color: "#81b29a" },
-              { title: "Photo Gallery", icon: "🖼️", path: "/gallery", color: "#f2cc8f" },
-              { title: "Our Future", icon: "🌱", path: "/future", color: "#81b29a" }
+              { title: "Our Timeline", icon: "📜", path: "timeline", color: "#81b29a" },
+              { title: "Photo Gallery", icon: "🖼️", path: "gallery", color: "#f2cc8f" },
+              { title: "Our Future", icon: "🌱", path: "future", color: "#81b29a" }
             ].map((item, index) => (
               <div key={index} className="nav-card-container">
                 <button

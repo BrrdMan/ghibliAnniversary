@@ -26,10 +26,17 @@ const Navbar = () => {
     { path: '/', label: 'Home', icon: '🏠' },
     { path: '/timeline', label: 'Timeline', icon: '📜' },
     { path: '/gallery', label: 'Gallery', icon: '🖼️' },
-    // { path: '/memories', label: 'Memories', icon: '✨' },
     { path: '/future', label: 'Future', icon: '🌱' }
-    // { path: '/about', label: 'About Us', icon: '❤️' }
   ];
+
+  const isActive = (path) => {
+    // For the home path
+    if (path === '/' && location.pathname === '/') {
+      return true;
+    }
+    // For other paths, check if the current path includes the nav path
+    return path !== '/' && location.pathname.includes(path.substring(1));
+  };
 
   return (
     <>
@@ -72,7 +79,7 @@ const Navbar = () => {
                 key={link.path} 
                 to={link.path}
                 className={`px-3 py-2 rounded-lg transition-colors duration-300 flex items-center ${
-                  location.pathname === link.path 
+                  isActive(link.path) 
                     ? 'bg-[#81b29a] text-white' 
                     : scrolled 
                       ? 'text-[#3a5169] hover:bg-[#f2cc8f] hover:text-[#3a5169]' 
@@ -119,7 +126,7 @@ const Navbar = () => {
                   <Link 
                     to={link.path}
                     className={`block px-4 py-3 rounded-lg text-white text-lg ${
-                      location.pathname === link.path 
+                      isActive(link.path) 
                         ? 'bg-[#81b29a]' 
                         : 'hover:bg-white hover:bg-opacity-10'
                     }`}
