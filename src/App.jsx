@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 // Remove the Howl import since we're using YouTube now
 // import { Howl } from 'howler';
@@ -51,6 +51,7 @@ function App() {
                 <Future />
               </Layout>
             } />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </Router>
