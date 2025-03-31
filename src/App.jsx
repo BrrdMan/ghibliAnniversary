@@ -36,13 +36,19 @@ function App() {
         <div className="min-h-screen flex flex-col">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/*" element={
+            <Route path="/timeline" element={
               <Layout>
-                <Routes>
-                  <Route path="/timeline" element={<Timeline />} />
-                  <Route path="/gallery" element={<Gallery />} />
-                  <Route path="/future" element={<Future />} />
-                </Routes>
+                <Timeline />
+              </Layout>
+            } />
+            <Route path="/gallery" element={
+              <Layout>
+                <Gallery />
+              </Layout>
+            } />
+            <Route path="/future" element={
+              <Layout>
+                <Future />
               </Layout>
             } />
           </Routes>
