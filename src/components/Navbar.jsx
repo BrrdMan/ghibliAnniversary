@@ -56,7 +56,7 @@ const Navbar = () => {
               className="mr-2"
             >
               <img 
-                src="/public/images/assets/totoro-logo.png" 
+                src="/images/assets/totoro-logo.png" 
                 alt="Logo" 
                 className="h-10 w-10"
                 onError={(e) => {

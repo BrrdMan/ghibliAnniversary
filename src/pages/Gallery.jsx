@@ -351,63 +351,68 @@ const Gallery = () => {
           </motion.p>
       </div> */}
           
-          {/* Loading indicator */}
+      {/* Loading indicator */}
       {loading ? (
-            <div className="flex justify-center items-center h-64">
+        <div className="flex justify-center items-center h-64">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-800"></div>
         </div>
       ) : (
-        
-        /* Image grid with ripple effect */
-        
-        <motion.div 
-          className="px-4 pb-4 flex-grow flex items-center justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          ref={containerRef}
-        >
-          <div className="grid grid-cols-10 gap-8 max-w-[95vw] max-h-[80vh]">
-            {images.slice(0, 50).map((image, index) => (
-              <motion.div
-                key={image.id}
-                className="relative aspect-square overflow-hidden cursor-pointer"
-                ref={(el) => setTileRef(el, index)}
-                initial={{ 
-                  x: 0, 
-                  y: 0, 
-                  scale: 0.3,
-                  opacity: 0 
-                }}
-                animate={{ 
-                  x: 0, 
-                  y: 0, 
-                  scale: 1,
-                  opacity: 1 
-                }}
-                transition={{ 
-                  duration: 0.8,
-                  delay: index * 0.01,
-                  type: "spring",
-                  stiffness: 50
-                }}
-                onClick={() => handleImageClick(image, index)}
-              >
-                <div className="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300 z-10"></div>
-                
-                <img 
-                  src={image.src} 
-                  alt={image.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-1 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 transform translate-y-2 hover:translate-y-0">
-                  <h3 className="text-white text-xs font-medium truncate">{image.title}</h3>
-                </div>
-              </motion.div>
-            ))}
-      </div>
-        </motion.div>
+        <>
+          <div 
+            className="fixed inset-0 bg-cover bg-center opacity-20 z-0"
+            style={{ 
+              backgroundImage: "url('/images/assets/ghibli-field-bg.jpg')"
+            }}
+          />
+          <motion.div 
+            className="px-4 pb-4 flex-grow flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            ref={containerRef}
+          >
+            <div className="grid grid-cols-10 gap-8 max-w-[95vw] max-h-[80vh]">
+              {images.slice(0, 50).map((image, index) => (
+                <motion.div
+                  key={image.id}
+                  className="relative aspect-square overflow-hidden cursor-pointer"
+                  ref={(el) => setTileRef(el, index)}
+                  initial={{ 
+                    x: 0, 
+                    y: 0, 
+                    scale: 0.3,
+                    opacity: 0 
+                  }}
+                  animate={{ 
+                    x: 0, 
+                    y: 0, 
+                    scale: 1,
+                    opacity: 1 
+                  }}
+                  transition={{ 
+                    duration: 0.8,
+                    delay: index * 0.01,
+                    type: "spring",
+                    stiffness: 50
+                  }}
+                  onClick={() => handleImageClick(image, index)}
+                >
+                  <div className="absolute inset-0 bg-black opacity-0 hover:opacity-20 transition-opacity duration-300 z-10"></div>
+                  
+                  <img 
+                    src={image.src} 
+                    alt={image.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-1 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 transform translate-y-2 hover:translate-y-0">
+                    <h3 className="text-white text-xs font-medium truncate">{image.title}</h3>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </>
       )}
       
       {/* Enhanced Modal with Navigation Controls */}

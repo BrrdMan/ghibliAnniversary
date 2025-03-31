@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 
 const Home = () => {
-  const [inputValue, setInputValue] = useState('');
   const [currentSection, setCurrentSection] = useState(0);
   const containerRef = useRef(null);
-  const sections = 3; // Total number of sections
+  const sections = 2; // Update to just 2 sections
   const scrollTimeoutRef = useRef(null); // For debouncing scroll events
   const isScrollingRef = useRef(false); // To track if we're currently scrolling
+  const touchStartY = useRef(0);
   
   // Direct navigation function using window.location
   const navigateTo = (path) => {
@@ -46,7 +46,7 @@ const Home = () => {
     }, 800); // Match this to your animation duration
   };
   
-  // Simple scroll handling with debounce
+  // Mouse wheel scrolling
   useEffect(() => {
     const handleWheel = (e) => {
       // Don't handle wheel events on navigation cards
@@ -84,15 +84,63 @@ const Home = () => {
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'ArrowDown') {
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
         changeSection(1);
-      } else if (e.key === 'ArrowUp') {
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
         changeSection(-1);
       }
     };
     
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+  
+  // Touch/swipe gesture support
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      touchStartY.current = e.touches[0].clientY;
+    };
+    
+    const handleTouchMove = (e) => {
+      if (!touchStartY.current) return;
+      
+      const touchY = e.touches[0].clientY;
+      const diff = touchStartY.current - touchY;
+      
+      // Require a minimum swipe distance to trigger section change
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          // Swipe up (move down)
+          changeSection(1);
+        } else {
+          // Swipe down (move up)
+          changeSection(-1);
+        }
+        
+        // Reset touch start to prevent multiple triggers
+        touchStartY.current = 0;
+      }
+      
+      // Prevent default to avoid page scrolling
+      e.preventDefault();
+    };
+    
+    const handleTouchEnd = () => {
+      touchStartY.current = 0;
+    };
+    
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('touchstart', handleTouchStart, { passive: true });
+      container.addEventListener('touchmove', handleTouchMove, { passive: false });
+      container.addEventListener('touchend', handleTouchEnd, { passive: true });
+      
+      return () => {
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchmove', handleTouchMove);
+        container.removeEventListener('touchend', handleTouchEnd);
+      };
+    }
   }, []);
   
   return (
@@ -109,7 +157,7 @@ const Home = () => {
       <motion.div 
         className="fixed z-5 w-16 h-16 opacity-70"
         style={{ 
-          backgroundImage: "url('/public/images/assets/totoro-small.png')", 
+          backgroundImage: "url('/images/assets/totoro-small.png')", 
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat'
         }}
@@ -129,7 +177,7 @@ const Home = () => {
       <motion.div 
         className="fixed z-5 w-20 h-20 opacity-70"
         style={{ 
-          backgroundImage: "url('/public/images/assets/leaf-spirit.png')", 
+          backgroundImage: "url('/images/assets/leaf-spirit.png')", 
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat'
         }}
@@ -183,7 +231,6 @@ const Home = () => {
               6 Months
             </motion.h1>
             <p className="text-[#3a5169] text-xl mt-4">A journey of love and adventure</p>
-            <p className="text-[#3a5169] text-lg mt-2">Every moment with you is like living in a Ghibli film</p>
           </motion.div>
           
           {/* Scroll indicator */}
@@ -206,13 +253,13 @@ const Home = () => {
           </motion.div>
         </motion.div>
 
-        {/* Section 2: Navigation buttons - SIMPLIFIED */}
+        {/* Section 2: Navigation buttons */}
         <motion.div 
           className="absolute inset-0 flex flex-col items-center justify-center px-4"
           initial={{ opacity: 0 }}
           animate={{ 
             opacity: currentSection === 1 ? 1 : 0,
-            y: currentSection < 1 ? 50 : (currentSection > 1 ? -50 : 0)
+            y: currentSection < 1 ? 50 : 0
           }}
           transition={{ duration: 0.8 }}
           style={{ 
@@ -239,7 +286,7 @@ const Home = () => {
             ))}
           </div>
           
-          {/* Scroll indicators */}
+          {/* Scroll up indicator */}
           <div className="absolute bottom-10 flex flex-col items-center">
             <motion.div 
               className="mb-2"
@@ -253,76 +300,16 @@ const Home = () => {
                 ease: "easeInOut" 
               }}
             >
-              <p className="text-[#3a5169] text-sm">Scroll down</p>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
-                <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="#3a5169" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Section 3: Wish input */}
-        {/* <motion.div 
-          className="absolute inset-0 flex flex-col items-center justify-center px-4"
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: currentSection === 2 ? 1 : 0,
-            y: currentSection < 2 ? 50 : 0
-          }}
-          transition={{ duration: 0.8 }}
-          style={{ display: currentSection === 2 ? 'flex' : 'none' }}
-        >
-          <motion.div 
-            className="text-center max-w-lg mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
-            <div className="bg-white p-6 rounded-xl shadow-md border-2 border-[#81b29a]">
-              <p className="text-[#3a5169] text-sm mb-2">Tie a red thread of fate between our hearts</p>
-              <p className="text-[#3a5169] text-sm mb-4">Share a feeling that binds us together</p>
-
-              <div className="flex justify-center mb-6">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="I feel connected when..."
-                  className="px-6 py-3 rounded-full w-80 text-center focus:outline-none border-2 border-[#f2cc8f] focus:border-[#e07a5f] transition-all duration-300"
-                />
-              </div>
-
-              <button
-                className="bg-[#81b29a] hover:bg-[#6d9e89] text-white px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 active:scale-95"
-              >
-                Tie our thread
-              </button>
-            </div>
-          </motion.div> */}
-          
-          {/* Scroll indicator */}
-          {/* <div className="absolute bottom-10 flex flex-col items-center">
-            <motion.div 
-              animate={{ 
-                y: [0, 10, 0],
-                opacity: [0.6, 1, 0.6]
-              }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 2,
-                ease: "easeInOut" 
-              }}
-            >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto rotate-180">
                 <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="#3a5169" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <p className="text-[#3a5169] text-sm mt-2">Scroll up</p>
+              <p className="text-[#3a5169] text-sm">Scroll up</p>
             </motion.div>
           </div>
-        </motion.div> */}
+        </motion.div>
         
-        {/* Section indicators */}
-        {/* <div className="fixed right-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-3 z-40">
+        {/* Section indicators (dots) */}
+        <div className="fixed right-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-3 z-40">
           {Array.from({ length: sections }).map((_, index) => (
             <button
               key={index}
@@ -335,7 +322,7 @@ const Home = () => {
               aria-label={`Go to section ${index + 1}`}
             />
           ))}
-        </div> */}
+        </div>
       </div>
       
       {/* Add custom CSS for better hover effects */}
