@@ -91,9 +91,9 @@ const Timeline = () => {
         }}
       />
       
-      {/* Floating elements */}
+      {/* Floating elements - made responsive */}
       <motion.div 
-        className="fixed z-1 w-24 h-24 opacity-60"
+        className="fixed z-1 w-16 sm:w-24 h-16 sm:h-24 opacity-60"
         style={{ 
           backgroundImage: "url('/images/assets/flying-bird.png')", 
           backgroundSize: 'contain',
@@ -113,7 +113,7 @@ const Timeline = () => {
       />
       
       <motion.div 
-        className="fixed z-1 w-16 h-16 opacity-60"
+        className="fixed z-1 w-12 sm:w-16 h-12 sm:h-16 opacity-60"
         style={{ 
           backgroundImage: "url('/images/assets/small-cloud.png')", 
           backgroundSize: 'contain',
@@ -150,19 +150,19 @@ const Timeline = () => {
           {/* Center line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#81b29a] rounded-full"></div>
           
-          {/* Timeline events */}
+          {/* Timeline events - made responsive */}
           {timelineEvents.map((event, index) => (
             <motion.div 
               key={event.id}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`relative mb-16 flex ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+              className={`relative mb-16 flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
             >
-              {/* Content */}
-              <div className={`w-5/12 ${index % 2 === 0 ? 'pr-10 text-right' : 'pl-10 text-left'}`}>
+              {/* Content - full width on mobile, half on desktop */}
+              <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-10 md:text-right' : 'md:pl-10 md:text-left'} mb-4 md:mb-0`}>
                 <motion.div 
-                  className="bg-white p-6 rounded-xl shadow-md border-2 h-full"
+                  className="bg-white p-4 sm:p-6 rounded-xl shadow-md border-2 h-full"
                   style={{ borderColor: event.color }}
                   whileHover={{ scale: 1.03 }}
                   onClick={() => setSelectedEvent(event)}
@@ -170,12 +170,12 @@ const Timeline = () => {
                   <div className="text-2xl mb-2" style={{ color: event.color }}>{event.icon}</div>
                   <h3 className="text-xl font-medium text-[#3a5169] mb-1">{event.title}</h3>
                   <p className="text-sm text-[#3a5169] opacity-75 mb-3">{event.date}</p>
-                  <p className="text-[#3a5169]">{event.description}</p>
+                  <p className="text-[#3a5169] text-sm sm:text-base">{event.description}</p>
                 </motion.div>
               </div>
               
-              {/* Pin replacing the center dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 mt-6 z-10">
+              {/* Pin replacing the center dot - adjusted for mobile */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 mt-0 md:mt-6 z-10">
                 <div 
                   className="w-8 h-8 flex items-center justify-center"
                   style={{ filter: `drop-shadow(0 2px 2px rgba(0,0,0,0.2))` }}
@@ -190,10 +190,10 @@ const Timeline = () => {
                 </div>
               </div>
               
-              {/* Image (opposite side) */}
-              <div className={`w-5/12 ${index % 2 === 0 ? 'pl-10' : 'pr-10'}`}>
+              {/* Image - full width on mobile, half on desktop */}
+              <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pl-10' : 'md:pr-10'}`}>
                 <motion.div 
-                  className="h-128 rounded-xl overflow-hidden shadow-md"
+                  className="h-64 sm:h-96 md:h-128 rounded-xl overflow-hidden shadow-md"
                   whileHover={{ scale: 1.05 }}
                 >
                   <img 
@@ -211,7 +211,7 @@ const Timeline = () => {
         </div>
       </div>
 
-      {/* Modal for viewing event details */}
+      {/* Modal for viewing event details - made responsive */}
       {selectedEvent && (
         <motion.div 
           className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4"
@@ -225,7 +225,7 @@ const Timeline = () => {
             animate={{ scale: 1 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="md:w-1/2 h-64 md:h-auto">
+            <div className="w-full md:w-1/2 h-64 md:h-auto">
               <img 
                 src={selectedEvent.image} 
                 alt={selectedEvent.title} 
@@ -235,21 +235,21 @@ const Timeline = () => {
                 }}
               />
             </div>
-            <div className="md:w-1/2 p-6 flex flex-col">
+            <div className="w-full md:w-1/2 p-4 sm:p-6 flex flex-col overflow-y-auto max-h-[50vh] md:max-h-[90vh]">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-2xl font-medium text-[#3a5169]">{selectedEvent.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-medium text-[#3a5169]">{selectedEvent.title}</h3>
                   <p className="text-sm text-[#3a5169] opacity-75">{selectedEvent.date}</p>
                 </div>
                 <button 
                   onClick={() => setSelectedEvent(null)}
-                  className="text-[#3a5169] hover:text-[#e07a5f] text-xl"
+                  className="text-[#3a5169] hover:text-[#e07a5f] text-xl sm:text-2xl"
                 >
                   ×
                 </button>
               </div>
-              <p className="text-[#3a5169] flex-grow">{selectedEvent.description}</p>
-              <div className="text-3xl mt-4" style={{ color: selectedEvent.color }}>{selectedEvent.icon}</div>
+              <p className="text-[#3a5169] text-sm sm:text-base flex-grow">{selectedEvent.description}</p>
+              <div className="text-2xl sm:text-3xl mt-4" style={{ color: selectedEvent.color }}>{selectedEvent.icon}</div>
             </div>
           </motion.div>
         </motion.div>

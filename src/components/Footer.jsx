@@ -26,7 +26,7 @@ const Footer = () => {
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
-          className="absolute w-40 h-40 opacity-10"
+          className="absolute w-24 sm:w-40 h-24 sm:h-40 opacity-10"
           style={{ 
             backgroundImage: "url('/images/assets/cat-bus.png')", 
             backgroundSize: 'contain',
@@ -46,7 +46,7 @@ const Footer = () => {
         />
         
         <motion.div 
-          className="absolute w-32 h-32 opacity-10"
+          className="absolute w-20 sm:w-32 h-20 sm:h-32 opacity-10"
           style={{ 
             backgroundImage: "url('/images/assets/kodama.png')", 
             backgroundSize: 'contain',
@@ -67,8 +67,8 @@ const Footer = () => {
       </div>
 
       {/* Main footer content */}
-      <div className="max-w-6xl mx-auto px-6 py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10">
           {/* Column 1: About */}
           <div>
             <motion.div 
@@ -80,55 +80,20 @@ const Footer = () => {
               <img 
                 src="/images/assets/totoro-logo.png" 
                 alt="Logo" 
-                className="h-10 w-10 mr-3"
+                className="h-8 w-8 sm:h-10 sm:w-10 mr-3"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/></svg>';
                 }}
               />
-              <h3 className="text-xl font-serif">Our Story</h3>
+              <h3 className="text-lg sm:text-xl font-serif">Our Story</h3>
             </motion.div>
-            
-            {/* <motion.p 
-              className="text-sm text-gray-300 mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              A magical journey of love and adventure, inspired by the enchanting worlds of Studio Ghibli.
-            </motion.p> */}
-            
-            {/* <motion.div 
-              className="flex space-x-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
-                  whileHover={{ 
-                    scale: 1.1,
-                    backgroundColor: '#f2cc8f',
-                    color: '#3a5169'
-                  }}
-                  onMouseEnter={() => setHoverIcon(social.name)}
-                  onMouseLeave={() => setHoverIcon(null)}
-                >
-                  <span className="text-lg">{social.icon}</span>
-                </motion.a>
-              ))}
-            </motion.div> */}
           </div>
           
           {/* Column 2: Quick Links */}
           <div>
             <motion.h3 
-              className="text-lg font-medium mb-4 border-b border-white border-opacity-20 pb-2"
+              className="text-base sm:text-lg font-medium mb-4 border-b border-white border-opacity-20 pb-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -149,7 +114,7 @@ const Footer = () => {
                 >
                   <Link 
                     to={link.path}
-                    className="text-gray-300 hover:text-white transition-colors duration-300"
+                    className="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base"
                   >
                     {link.name}
                   </Link>
@@ -161,7 +126,7 @@ const Footer = () => {
           {/* Column 3: Message */}
           <div>
             <motion.h3 
-              className="text-lg font-medium mb-4 border-b border-white border-opacity-20 pb-2"
+              className="text-base sm:text-lg font-medium mb-4 border-b border-white border-opacity-20 pb-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -170,12 +135,12 @@ const Footer = () => {
             </motion.h3>
             
             <motion.div
-              className="bg-white bg-opacity-10 p-4 rounded-lg"
+              className="bg-white bg-opacity-10 p-3 sm:p-4 rounded-lg"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <p className="text-sm italic mb-2">
+              <p className="text-xs sm:text-sm italic mb-2">
               "Once you've met someone, you never really forget them"
               </p>
               <p className="text-xs text-right text-gray-300">— Spirited Away</p>
@@ -185,7 +150,7 @@ const Footer = () => {
         
         {/* Bottom copyright */}
         <motion.div 
-          className="mt-12 pt-4 border-t border-white border-opacity-20 text-center text-sm text-gray-300"
+          className="mt-8 sm:mt-12 pt-4 border-t border-white border-opacity-20 text-center text-xs sm:text-sm text-gray-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}

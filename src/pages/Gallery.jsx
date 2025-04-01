@@ -371,7 +371,7 @@ const Gallery = () => {
             transition={{ duration: 0.8 }}
             ref={containerRef}
           >
-            <div className="grid grid-cols-10 gap-8 max-w-[95vw] max-h-[80vh]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-2 sm:gap-4 md:gap-6 lg:gap-8 max-w-[95vw] max-h-[90vh] overflow-y-auto">
               {images.slice(0, 50).map((image, index) => (
                 <motion.div
                   key={image.id}
@@ -427,7 +427,7 @@ const Gallery = () => {
           >
             {/* Previous button */}
             <motion.button
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full w-12 h-12 flex items-center justify-center text-white transition-colors duration-300 z-10"
+              className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center text-white transition-colors duration-300 z-10"
               onClick={handlePrevImage}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -435,14 +435,14 @@ const Gallery = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </motion.button>
             
             {/* Next button */}
             <motion.button
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full w-12 h-12 flex items-center justify-center text-white transition-colors duration-300 z-10"
+              className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center text-white transition-colors duration-300 z-10"
               onClick={handleNextImage}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -450,7 +450,7 @@ const Gallery = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </motion.button>
@@ -466,17 +466,17 @@ const Gallery = () => {
               <img 
                 src={selectedImage.src} 
                 alt={selectedImage.title} 
-                className="w-full h-auto max-h-[80vh] object-contain mx-auto"
+                className="w-full h-auto max-h-[70vh] sm:max-h-[80vh] object-contain mx-auto"
               />
               
-              <div className="mt-4 text-white">
-                <h3 className="text-2xl font-medium mb-2">{selectedImage.title}</h3>
-                <p className="text-gray-300">{selectedImage.description}</p>
+              <div className="mt-2 sm:mt-4 text-white">
+                <h3 className="text-lg sm:text-2xl font-medium mb-1 sm:mb-2">{selectedImage.title}</h3>
+                <p className="text-sm sm:text-base text-gray-300">{selectedImage.description}</p>
               </div>
               
               <button 
                 onClick={handleCloseModal}
-                className="absolute top-4 right-4 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full w-10 h-10 flex items-center justify-center text-white transition-colors duration-300"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-white transition-colors duration-300"
                 aria-label="Close modal"
               >
                 ×

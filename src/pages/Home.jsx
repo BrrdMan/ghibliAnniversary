@@ -153,9 +153,9 @@ const Home = () => {
            style={{ backgroundImage: "url('/images/assets/ghibli-field-bg.jpg')" }}>
       </div>
       
-      {/* Floating elements - Ghibli-inspired */}
+      {/* Floating elements - Ghibli-inspired - made responsive */}
       <motion.div 
-        className="fixed z-5 w-16 h-16 opacity-70"
+        className="fixed z-5 w-12 h-12 sm:w-16 sm:h-16 opacity-70"
         style={{ 
           backgroundImage: "url('/images/assets/totoro-small.png')", 
           backgroundSize: 'contain',
@@ -175,7 +175,7 @@ const Home = () => {
       />
       
       <motion.div 
-        className="fixed z-5 w-20 h-20 opacity-70"
+        className="fixed z-5 w-16 h-16 sm:w-20 sm:h-20 opacity-70"
         style={{ 
           backgroundImage: "url('/images/assets/leaf-spirit.png')", 
           backgroundSize: 'contain',
@@ -213,7 +213,7 @@ const Home = () => {
             transition={{ duration: 1.5 }}
           >
             <motion.h1 
-              className="text-7xl md:text-8xl font-serif text-[#3a5169] leading-tight head"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-[#3a5169] leading-tight head"
               animate={{ 
                 y: [0, -5, 0]
               }}
@@ -222,7 +222,7 @@ const Home = () => {
               Our Magical
             </motion.h1>
             <motion.h1 
-              className="text-7xl md:text-8xl font-serif text-[#e07a5f] leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-[#e07a5f] leading-tight"
               animate={{ 
                 y: [0, -5, 0]
               }}
@@ -230,7 +230,7 @@ const Home = () => {
             >
               6 Months
             </motion.h1>
-            <p className="text-[#3a5169] text-xl mt-4">A journey of love and adventure</p>
+            <p className="text-[#3a5169] text-lg mt-4">A journey of love and adventure</p>
           </motion.div>
           
           {/* Scroll indicator */}
@@ -267,7 +267,7 @@ const Home = () => {
             zIndex: 30 
           }}
         >
-          <div className="grid grid-cols-3 gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12 max-w-4xl mx-auto">
             {[
               { title: "Our Timeline", icon: "📜", path: "timeline", color: "#81b29a" },
               { title: "Photo Gallery", icon: "🖼️", path: "gallery", color: "#f2cc8f" },
@@ -308,13 +308,13 @@ const Home = () => {
           </div>
         </motion.div>
         
-        {/* Section indicators (dots) */}
-        <div className="fixed right-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-3 z-40">
+        {/* Section indicators (dots) - hidden on smallest screens */}
+        <div className="fixed right-2 sm:right-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-3 z-40">
           {Array.from({ length: sections }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSection(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2 sm:w-3 h-2 sm:h-3 rounded-full transition-all duration-300 ${
                 currentSection === index 
                   ? 'bg-[#e07a5f] scale-125' 
                   : 'bg-[#3a5169] opacity-50 hover:opacity-75'

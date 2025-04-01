@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <>
       <motion.nav 
-        className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 transition-all duration-300 ${
           scrolled ? 'bg-white shadow-md' : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
@@ -58,7 +58,7 @@ const Navbar = () => {
               <img 
                 src="/images/assets/totoro-logo.png" 
                 alt="Logo" 
-                className="h-10 w-10"
+                className="h-8 w-8 sm:h-10 sm:w-10"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="%233a5169"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/></svg>';
@@ -66,7 +66,7 @@ const Navbar = () => {
               />
             </motion.div>
             <div>
-              <h1 className={`font-serif text-xl ${scrolled ? 'text-[#3a5169]' : 'text-white'}`}>
+              <h1 className={`font-serif text-lg sm:text-xl ${scrolled ? 'text-[#3a5169]' : 'text-white'}`}>
                 Our Story
               </h1>
             </div>
@@ -109,7 +109,7 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            className="fixed inset-0 bg-[#3a5169] z-40 pt-20 px-6 md:hidden"
+            className="fixed inset-0 bg-[#3a5169] z-40 pt-16 px-6 md:hidden"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
@@ -140,7 +140,7 @@ const Navbar = () => {
 
             {/* Decorative elements */}
             <motion.div 
-              className="absolute bottom-10 right-10 opacity-20 w-32 h-32"
+              className="absolute bottom-10 right-10 opacity-20 w-24 h-24 sm:w-32 sm:h-32"
               style={{ 
                 backgroundImage: "url('/src/assets/totoro-silhouette.png')", 
                 backgroundSize: 'contain',
@@ -162,7 +162,7 @@ const Navbar = () => {
       </AnimatePresence>
 
       {/* Spacer to prevent content from hiding behind fixed navbar */}
-      <div className="h-16"></div>
+      <div className="h-12 sm:h-16"></div>
     </>
   );
 };
